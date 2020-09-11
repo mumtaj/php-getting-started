@@ -1,6 +1,6 @@
 {
-  "name": "Start on Heroku: PHP",
+  "name": "Test for 4am",
   "description": "A barebones PHP app that makes use of the Silex web framework",
-  "repository": "https://github.com/heroku/php-getting-started",
+  "repository": "https://github.com/mumtaj/test-4am.git",
   "addons": []
 }
