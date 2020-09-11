@@ -28,14 +28,14 @@ section {
 }
 
 
-#timer div {
+.timer div {
   text-align:center;
   display: inline-block;
 }
-#timer span {
+.timer span {
   font-size: 40px
 }
-#timer p {
+.timer p {
   margin: 15px;
   text-transform: uppercase;
   display: inline-block;
