@@ -30,8 +30,8 @@ body {
 .hero-section img {
   width:100%;
   position:absolute;
-  top:20;
-  left:50%;
+/*   top:20; */
+  left:80%;
   transform: translateX(-50%);
 }
 
