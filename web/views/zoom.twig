@@ -5,23 +5,64 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+  // TIMER
+  var goLiveTime = new Date('Sep 12, 2020 23:59:59').getTime();
+  var updateTime = setInterval( 
+    function () {
+      var now = new Date().getTime();
+      var remainingTime = goLiveTime - now;
+      if (remainingTime > 0) {
+        d = Math.floor(remainingTime / (1000 * 24 * 60 * 60));
+        h = Math.floor((remainingTime % (1000 * 24 * 60 * 60)) / (1000 * 60 * 60));
+        m = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        s = Math.floor((remainingTime % (1000 * 60)) / 1000);
+        document.getElementById('days').innerHTML = d; 
+        document.getElementById('hours').innerHTML = h;
+        document.getElementById('min').innerHTML = m;
+        document.getElementById('sec').innerHTML = s;
+      } 
+    }, 
+    1000
+  );
+  
+  // Zoom image on scroll
   $(window).scroll(function() {
     var scroll = $(window).scrollTop();
     $("#js-hero img").css({
       width: (100 + scroll/5) +"%"
     })
   })
+  
 </script>
 
 <header>
-  4am Tests - Timer + Zoom Image + Signup 
+  <h1>4am Tests - Timer + Zoom Image on Scroll + Signup</h1> 
 </header>
 
-<section class="hero-section" id="js-hero">
-  <img src="https://source.unsplash.com/random/1920x1080" alt="Image " />
-</section>
+<body>
+  <center>
+  
+  /************* TIMER *************/
+  <section class="timer">
+    <strong>
+      <div> Countdown to go Live is: <br/>
+        <p><span id="days"></span><br/>days</p>
+        <p><span id="hours"></span><br/>hours</p>
+        <p><span id="min"></span><br/>minutes</p>
+        <p><span id="sec"></span><br/>seconds</p>
+      </div> 
+    <strong>
+  </section>
 
-<section>
-</section>
+  /************* ZOOM IMAGE ON SCROLL *************/
+  <section class="hero-section" id="js-hero">
+    <img src="https://source.unsplash.com/random/1920x1080" alt="Image " />
+  </section>
 
-    
+  /************* Sign up *************/
+  <section>
+  </section>
+
+
+  </center>
+</body>
