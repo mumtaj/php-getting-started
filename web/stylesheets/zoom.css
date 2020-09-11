@@ -19,7 +19,7 @@ body {
 
 /******** Zoom image on scroll *********/
 
-section {     
+.hero-section {     
   width:100%;
   height:1000px;
   overflow:hidden;
