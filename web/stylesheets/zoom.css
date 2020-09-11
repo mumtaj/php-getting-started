@@ -19,13 +19,15 @@ body {
 
 /******** Zoom image on scroll *********/
 
-.hero-section {     
-  width:100%;
-  height:1000px;
+.hero-section {
   overflow:hidden;
   position:relative;
   background: url('image.jpg');
   background-size: cover; 
+}
+section {
+  width:80%;
+  height:1000px;
 }
 .hero-section img {
   width:100%;
