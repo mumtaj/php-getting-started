@@ -41,8 +41,8 @@ body {
 .container {
     width: 410px;
     max-width: 410px;
-    margin-top: 55px !important;
     margin: 0 auto;
+    margin-top: 155px !important;
 }
 
 #signup {
