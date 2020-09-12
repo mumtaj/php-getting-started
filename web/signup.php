@@ -21,12 +21,10 @@ function getMailContent() {return "HELLO";
 require("../packages/sendgrid-php-7.8.3/sendgrid-php.php");
 // If not using Composer, uncomment the above line
 
-print_r($_REQUEST); die("1");
-/*
 define('SENDGRID_API_KEY','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');
 
 $mail = new \SendGrid\Mail\Mail();
-$mail->setFrom("webmobiletechie@gmail.com", "Web Mobile Techie");
+$mail->setFrom("mumtaj@gmail.com", "Mumtaj Pathan");
 // $mail->setFrom("test@example.com", "Example User");
 $mail->setSubject("[4am] New User Signup");
 $mail->addTo($_REQUEST["email"], $_REQUEST["name"]);
@@ -44,6 +42,8 @@ try {
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
+/*
+print_r($_REQUEST); die("1");
 */
 
 ?>
