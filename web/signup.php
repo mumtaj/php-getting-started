@@ -2,6 +2,15 @@
 
 print_r($_REQUEST);
 extract($_REQUEST);
+function getMailContent($_REQUEST) {
+  extract($_REQUEST);
+  return "Dear User,<p></p><p>Congratulations! You have successfully subscribed for 4am-worldwide newsletter. Your details are as under:</p>".
+  "<p><table border=0 padding=5><tr><td>Name:</td><td>$name</td></tr><tr><td>Email:</td><td>$email</td></tr>".
+  "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>$dob</td></tr></table></p>".
+  "<p></p><p>Regards,</p><p><strong>Team 4AM</strong></p>";
+
+}
+
 // using SendGrid's PHP Library
 // https://github.com/sendgrid/sendgrid-php
 require 'vendor/autoload.php'; // If you're using Composer (recommended)
@@ -12,7 +21,7 @@ require 'vendor/autoload.php'; // If you're using Composer (recommended)
 define('SENDGRID_API_KEY','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');
 
 $mail = new \SendGrid\Mail\Mail();
-$mail->setFrom("mumtaj@gmail.com", "Mumtaj Pathan");
+$mail->setFrom("webmobiletechie@gmail.com", "Web Mobile Techie");
 // $mail->setFrom("test@example.com", "Example User");
 $mail->setSubject("[4am] New User Signup");
 $mail->addTo($email, $name);
