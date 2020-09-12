@@ -14,8 +14,6 @@ function getMailContent() {return "HELLO";
   "<p></p><p>Regards,</p><p><strong>Team 4AM</strong></p>";
 */
 }
-print_r($_REQUEST); die("1");
-/*
 // using SendGrid's PHP Library
 // https://github.com/sendgrid/sendgrid-php
 require 'vendor/autoload.php'; // If you're using Composer (recommended)
@@ -23,6 +21,8 @@ require 'vendor/autoload.php'; // If you're using Composer (recommended)
 // require("./sendgrid-php.php");
 // If not using Composer, uncomment the above line
 
+print_r($_REQUEST); die("1");
+/*
 define('SENDGRID_API_KEY','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');
 
 $mail = new \SendGrid\Mail\Mail();
