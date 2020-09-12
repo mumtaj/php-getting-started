@@ -4,17 +4,16 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-/*
 // extract($_REQUEST);
-function getMailContent($_REQUEST) {
+function getMailContent() {return "HELLO";
+/*
   extract($_REQUEST);
   return "Dear User,<p></p><p>Congratulations! You have successfully subscribed for 4am-worldwide newsletter. Your details are as under:</p>".
   "<p><table border=0 padding=5><tr><td>Name:</td><td>$name</td></tr><tr><td>Email:</td><td>$email</td></tr>".
   "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>$dob</td></tr></table></p>".
   "<p></p><p>Regards,</p><p><strong>Team 4AM</strong></p>";
-
-}
 */
+}
 print_r($_REQUEST); die("1");
 /*
 // using SendGrid's PHP Library
