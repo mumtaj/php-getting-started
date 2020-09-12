@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// print_r($_REQUEST);
-extract($_REQUEST);
+print_r($_REQUEST); die("1");
+// extract($_REQUEST);
 function getMailContent($_REQUEST) {
   extract($_REQUEST);
   return "Dear User,<p></p><p>Congratulations! You have successfully subscribed for 4am-worldwide newsletter. Your details are as under:</p>".
@@ -43,3 +43,6 @@ try {
 } catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
+
+
+?>
