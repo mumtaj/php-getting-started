@@ -15,7 +15,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
 
-print_r($_REQUEST);
+if (!empty($_REQUEST['signup']) && !empty($_REQUEST['submit'])) {
+  require_once("./signup.php");
+}
+
 // Our web handlers
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
