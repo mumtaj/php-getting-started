@@ -8,6 +8,9 @@ require 'vendor/autoload.php'; // If you're using Composer (recommended)
 // Comment out the above line if not using Composer
 // require("./sendgrid-php.php");
 // If not using Composer, uncomment the above line
+
+define('SENDGRID_API_KEY','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');
+
 $mail = new \SendGrid\Mail\Mail();
 $mail->setFrom("mumtaj@gmail.com", "Mumtaj Pathan");
 // $mail->setFrom("test@example.com", "Example User");
@@ -23,7 +26,7 @@ $mail->addContent(
   "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>$dob</td></tr></table></p>".
   "<p></p><p>Regards,</p><p><strong>Team 4AM</strong></p>"
 );
-$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+$sendgrid = new \SendGrid(SENDGRID_API_KEY);
 try {
     $response = $sendgrid->send($mail);
     print $response->statusCode() . "\n";
