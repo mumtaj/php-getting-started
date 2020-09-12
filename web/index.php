@@ -18,7 +18,8 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 // Our web handlers
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render(empty($_REQUEST['signup']) ? 'zoom' : 'signup' . '.twig');
+  $view = empty($_REQUEST['signup']) ? 'zoom' : 'signup';
+  return $app['twig']->render($view . '.twig');
 });
 
 $app->run();
