@@ -4,9 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-print_r($_REQUEST); die("1");
 
-/*
 // extract($_REQUEST);
 function getMailContent($_REQUEST) {
   extract($_REQUEST);
@@ -17,6 +15,8 @@ function getMailContent($_REQUEST) {
 
 }
 
+print_r($_REQUEST); die("1");
+/*
 // using SendGrid's PHP Library
 // https://github.com/sendgrid/sendgrid-php
 require 'vendor/autoload.php'; // If you're using Composer (recommended)
