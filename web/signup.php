@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
+/*
 // extract($_REQUEST);
 function getMailContent($_REQUEST) {
   extract($_REQUEST);
@@ -14,7 +14,7 @@ function getMailContent($_REQUEST) {
   "<p></p><p>Regards,</p><p><strong>Team 4AM</strong></p>";
 
 }
-
+*/
 print_r($_REQUEST); die("1");
 /*
 // using SendGrid's PHP Library
