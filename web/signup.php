@@ -16,9 +16,9 @@ function getMailContent() {return "HELLO";
 }
 // using SendGrid's PHP Library
 // https://github.com/sendgrid/sendgrid-php
-require 'vendor/autoload.php'; // If you're using Composer (recommended)
+// require 'vendor/autoload.php'; // If you're using Composer (recommended)
 // Comment out the above line if not using Composer
-// require("./sendgrid-php.php");
+require("../packages/sendgrid-php-7.8.3/sendgrid-php.php");
 // If not using Composer, uncomment the above line
 
 print_r($_REQUEST); die("1");
