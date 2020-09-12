@@ -23,7 +23,7 @@ require("../packages/sendgrid-php-7.8.3/sendgrid-php.php");
 
 define('SENDGRID_API_KEY','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');
 
-$mail = new \SendGrid\Mail\Mail();
+$mail = new \SendGrid\Mail();
 $mail->setFrom("mumtaj@gmail.com", "Mumtaj Pathan");
 // $mail->setFrom("test@example.com", "Example User");
 $mail->setSubject("[4am] New User Signup");
