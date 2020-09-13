@@ -15,15 +15,19 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
 
-if (!empty($_REQUEST['signup']) && !empty($_REQUEST['submit'])) {
+if (!empty($_REQUEST['submit'])) {
   require_once("./signup.php");
 }
 
 // Our web handlers
-$app->post('/', function() use($app) {
+$app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  $view = empty($_REQUEST['signup']) ? 'zoom' : 'signup';
-  return $app['twig']->render($view . '.twig');
+  return $app['twig']->render('zoom.twig');
+});
+
+$app->post('/signup', function() use($app) {
+  $app['monolog']->addDebug('logging output.');
+  return $app['twig']->render('signup.twig');
 });
 
 $app->run();
