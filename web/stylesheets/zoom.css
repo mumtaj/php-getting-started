@@ -21,7 +21,7 @@ body {
 .hero-section {
   overflow:hidden;
   position:relative;
-  background: url('image.jpg');
+/*   background: url('image.jpg'); */
   background-size: cover; 
 }
 .section-later {
