@@ -42,9 +42,9 @@ $mail->AltBody = $bodyHtml;
 // $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
 
 if (! $mail->send()) {
-    echo "<center><p>Unfortunately, you failed to subscribe to 4am newsletter. Please try again.</p>".
+    echo "<div class=center><p>Unfortunately, you failed to subscribe to 4am newsletter. Please try again.</p>".
         "<p>Kindly share below error message with Administrator (".$mail->Username."): </p>".
-        "<p><code>" . $mail->ErrorInfo . "</code></p><p></p>";
+        "<p><code>" . $mail->ErrorInfo . "</code></p><p></p></div>";
 } else {
     echo $message;
 }
