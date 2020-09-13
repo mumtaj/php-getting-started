@@ -46,7 +46,7 @@ if (! $mail->send()) {
         "<p>Kindly share below error message with Administrator (".$mail->Username."): </p>".
         "<p><code>" . $mail->ErrorInfo . "</code></p><p></p></div>";
 } else {
-    echo $message;
+    echo "<div align=center>" . $message . "</div>";
 }
 
 ?>
