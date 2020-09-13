@@ -1,9 +1,5 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/signup.css" />
   
-  <script type="text/javascript">
-    dob.max = new Date().toISOString().split("T")[0];
-  </script>
-  
   <section class="section-later sign-up">
     <div class="container">
       <form id="signup" action="/signup"  method="post">
@@ -29,3 +25,8 @@
       </form>
     </div>
   </section>
+
+  <script type="text/javascript">
+    document.getElementById("dob").setAttribute("max", new Date().toISOString().split("T")[0]);
+  </script>
+  
