@@ -1,15 +1,15 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 function getMailContent() {
     extract($_REQUEST);
     return "<p></p><p>Congratulations! You have successfully subscribed for 4am-worldwide newsletter on ".
-        (new \DateTime())->format('Y-m-d H:i:s') . ". Your details are as under:</p>".
+        (new \DateTime())->format('d-M-Y H:i:s A') . ". Your details are as under:</p>".
         "<p><table border=0 padding=5><tr><td>Name:</td><td>$name</td></tr><tr><td>Email:</td><td>$email</td></tr>".
-        "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>$dob</td></tr></table></p><p></p><p></p>";        
+        "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>:".(new \DateTime($dob))->format('d F, Y')."</td></tr></table></p><p></p><p></p>";        
 }
 
 require '../packages/PHPMailer-master/src/Exception.php';
