@@ -22,7 +22,8 @@ if (!empty($_REQUEST['submit'])) {
 // Our web handlers
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('zoom.twig');
+  $view = empty($_REQUEST['signup']) ? 'zoom' : 'signup';
+  return $app['twig']->render($view . '.twig');
 });
 
 $app->post('/signup', function() use($app) {
