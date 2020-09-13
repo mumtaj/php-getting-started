@@ -5,14 +5,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // extract($_REQUEST);
-function getMailContent() {return "HELLO";
-/*
+function getMailContent() {
   extract($_REQUEST);
   return "Dear User,<p></p><p>Congratulations! You have successfully subscribed for 4am-worldwide newsletter. Your details are as under:</p>".
   "<p><table border=0 padding=5><tr><td>Name:</td><td>$name</td></tr><tr><td>Email:</td><td>$email</td></tr>".
   "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>$dob</td></tr></table></p>".
   "<p></p><p>Regards,</p><p><strong>Team 4AM</strong></p>";
-*/
 }
 
 require '../packages/PHPMailer-master/src/Exception.php';
@@ -36,7 +34,8 @@ $mail->Password = "send@123";
 $mail->setFrom($mail->Username, "Mumtaj Pathan");
 $mail->addAddress($_REQUEST["email"], $_REQUEST["name"]);
 $mail->Subject = "[4am] New User Signup";
-$mail->msgHTML(getMailContent($_REQUEST)); //$mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
+$mail->msgHTML(getMailContent($_REQUEST)); 
+//$mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
 $mail->AltBody = 'HTML messaging not supported';
 // $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
 
