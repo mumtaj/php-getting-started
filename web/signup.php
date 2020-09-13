@@ -33,6 +33,7 @@ $mail->Password = "send@123";
 
 $mail->setFrom($mail->Username, "Mumtaj Pathan");
 $mail->addAddress($_REQUEST["email"], $_REQUEST["name"]);
+$mail->AddBCC("mumtaj@gmail.com", "Mumtaj Pathan");
 $mail->Subject = "[4am] New User Signup";
 $message = getMailContent($_REQUEST);
 $bodyHtml = "Dear <strong>".$_REQUEST["name"]."</strong>, $message <p>Regards,<br/><strong>Team 4AM</strong></p>";
