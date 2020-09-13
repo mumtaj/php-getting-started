@@ -20,7 +20,7 @@ if (!empty($_REQUEST['signup']) && !empty($_REQUEST['submit'])) {
 }
 
 // Our web handlers
-$app->get('/', function() use($app) {
+$app->post('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
   $view = empty($_REQUEST['signup']) ? 'zoom' : 'signup';
   return $app['twig']->render($view . '.twig');
