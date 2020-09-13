@@ -8,8 +8,9 @@ function getMailContent() {
     extract($_REQUEST);
     return "<p></p><p>Congratulations! You have successfully subscribed for 4am-worldwide newsletter on ".
         (new \DateTime())->format('d-M-Y H:i:s A') . ".</p><p>Your details are as under:</p>".
-        "<p><table border=0 padding=10><tr><td>Name:</td><td>$name</td></tr><tr><td>Email:</td><td>$email</td></tr>".
-        "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>".(new \DateTime($dob))->format('d F, Y')."</td></tr></table></p><p></p><p></p>";        
+        "<p><table class=center border=0 padding=10><tr><td>Name:</td><td>$name</td></tr><tr><td>Email:</td><td>$email</td></tr>".
+        "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>".
+        (new \DateTime($dob))->format('d F, Y')."</td></tr></table></p><p></p><p></p>";        
 }
 
 require '../packages/PHPMailer-master/src/Exception.php';
@@ -34,7 +35,9 @@ $mail->setFrom($mail->Username, "Mumtaj Pathan");
 $mail->addAddress($_REQUEST["email"], $_REQUEST["name"]);
 $mail->Subject = "[4am] New User Signup";
 $message = getMailContent($_REQUEST);
-$bodyHtml = "Dear <strong>".$_REQUEST["name"]."</strong>," . $message . "<p>Regards,<br/><strong>Team 4AM</strong></p>";
+$bodyHtml = "Dear <strong>".$_REQUEST["name"]."</strong>," . 
+    str_replace('table', 'table class="center"', $message) . 
+    "<p>Regards,<br/><strong>Team 4AM</strong></p>";
 $mail->msgHTML($bodyHtml); 
 // $mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
 $mail->AltBody = $bodyHtml;
