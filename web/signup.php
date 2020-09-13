@@ -29,7 +29,7 @@ $mail->Port = 587; // TLS only
 $mail->SMTPSecure = 'tls'; // ssl is depracated
 $mail->SMTPAuth = true;
 $mail->Username = "webmobiletechiemailer@gmail.com";
-$mail->Password = "send@123";
+$mail->Password = "send@123"; 
 
 $mail->setFrom($mail->Username, "Mumtaj Pathan");
 $mail->addAddress($_REQUEST["email"], $_REQUEST["name"]);
@@ -42,7 +42,7 @@ $mail->AltBody = $bodyHtml;
 // $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
 
 if (! $mail->send()) {
-    echo "<div text-align=center><p>Unfortunately, you failed to subscribe to 4am newsletter. Please try again.</p>".
+    echo "<div align=center><p>Unfortunately, you failed to subscribe to 4am newsletter. Please try again.</p>".
         "<p>Kindly share below error message with Administrator (".$mail->Username."): </p>".
         "<p><code>" . $mail->ErrorInfo . "</code></p><p></p></div>";
 } else {
