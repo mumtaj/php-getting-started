@@ -35,9 +35,7 @@ $mail->setFrom($mail->Username, "Mumtaj Pathan");
 $mail->addAddress($_REQUEST["email"], $_REQUEST["name"]);
 $mail->Subject = "[4am] New User Signup";
 $message = getMailContent($_REQUEST);
-$bodyHtml = "Dear <strong>".$_REQUEST["name"]."</strong>," . 
-    str_replace('table', 'table class="center"', $message) . 
-    "<p>Regards,<br/><strong>Team 4AM</strong></p>";
+$bodyHtml = "Dear <strong>".$_REQUEST["name"]."</strong>, $message <p>Regards,<br/><strong>Team 4AM</strong></p>";
 $mail->msgHTML($bodyHtml); 
 // $mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
 $mail->AltBody = $bodyHtml;
