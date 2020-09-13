@@ -8,8 +8,8 @@ function getMailContent() {
     extract($_REQUEST);
     return "<p></p><p>Congratulations! You have successfully subscribed for 4am-worldwide newsletter on ".
         (new \DateTime())->format('d-M-Y H:i:s A') . ". Your details are as under:</p>".
-        "<p><table border=0 padding=5><tr><td>Name:</td><td>$name</td></tr><tr><td>Email:</td><td>$email</td></tr>".
-        "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>:".(new \DateTime($dob))->format('d F, Y')."</td></tr></table></p><p></p><p></p>";        
+        "<p><table border=0 padding=10><tr><td>Name:</td><td>$name</td></tr><tr><td>Email:</td><td>$email</td></tr>".
+        "<tr><td>Gender:</td><td>$gender</td></tr><tr><td>Date of Birth:</td><td>".(new \DateTime($dob))->format('d F, Y')."</td></tr></table></p><p></p><p></p>";        
 }
 
 require '../packages/PHPMailer-master/src/Exception.php';
@@ -41,7 +41,7 @@ $mail->AltBody = $bodyHtml;
 // $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
 
 if (! $mail->send()) {
-    echo "<p>Unfortunately, you failed to subscribe to 4am newsletter. Please try again.</p>".
+    echo "<center><p>Unfortunately, you failed to subscribe to 4am newsletter. Please try again.</p>".
         "<p>Kindly share below error message with Administrator (".$mail->Username."): </p>".
         "<p><code>" . $mail->ErrorInfo . "</code></p><p></p>";
 } else {
