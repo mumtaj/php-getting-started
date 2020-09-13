@@ -14,36 +14,36 @@ function getMailContent() {return "HELLO";
   "<p></p><p>Regards,</p><p><strong>Team 4AM</strong></p>";
 */
 }
-// using SendGrid's PHP Library
-// https://github.com/sendgrid/sendgrid-php
-// require 'vendor/autoload.php'; // If you're using Composer (recommended)
-// Comment out the above line if not using Composer
-require("../packages/sendgrid-php-7.8.3/sendgrid-php.php");
-// If not using Composer, uncomment the above line
 
-define('SENDGRID_API_KEY','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');
+require '../packages/PHPMailer-master/src/Exception.php';
+require '../packages/PHPMailer-master/src/PHPMailer.php';
+require '../packages/PHPMailer-master/src/SMTP.php';
 
-$mail = new \SendGrid\Mail();
-$mail->setFrom("mumtaj@gmail.com", "Mumtaj Pathan");
-// $mail->setFrom("test@example.com", "Example User");
-$mail->setSubject("[4am] New User Signup");
-$mail->addTo($_REQUEST["email"], $_REQUEST["name"]);
-// $mail->addContent(
-//     "text/plain", "and easy to do anywhere, even with PHP"
-// );
-$mail->addContent("text/html", getMailContent($_REQUEST));
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-$sendgrid = new \SendGrid(SENDGRID_API_KEY);
-try {
-    $response = $sendgrid->send($mail);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
+$mail = new PHPMailer;
+$mail->isSMTP(); 
+$mail->SMTPDebug = 2; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
+$mail->Host = "smtp.gmail.com"; // use $mail->Host = gethostbyname('smtp.gmail.com'); // if your network does not support SMTP over IPv6
+$mail->Port = 587; // TLS only
+$mail->SMTPSecure = 'tls'; // ssl is depracated
+$mail->SMTPAuth = true;
+$mail->Username = "webmobiletechiemailer@gmail.com";
+$mail->Password = "send@123";
+
+$mail->setFrom($mail->Username, "Mumtaj Pathan");
+$mail->addAddress($_REQUEST["email"], $_REQUEST["name"]);
+$mail->Subject = "[4am] New User Signup";
+$mail->msgHTML(getMailContent($_REQUEST)); //$mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
+$mail->AltBody = 'HTML messaging not supported';
+// $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
+
+if(!$mail->send()){
+    echo "Mailer Error: " . $mail->ErrorInfo;
+}else{
+    echo "Message sent!";
 }
-/*
-print_r($_REQUEST); die("1");
-*/
 
 ?>
